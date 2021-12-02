@@ -2,15 +2,16 @@
 #include <cstdlib>
 #include <string>
 #include <ctime>
+#include <unistd.h>
 
 void displayRules(std::string pName)
 {
-
-    std::cout << "\n\t\t\t\t\t\t\t\t\tWelcome to the Gambling Game!!\t\t\t\t\t\t\t\t\t";
-    std::cout << "\n\t\t\t\t\t\t\t\t\tSo, Mr./Mrs./Mis. " << pName << " here are the rules of the game: \t\t\t\t\t\t\t\t\t";
-    std::cout << "\n\t\t\t\t\t\t\t\t\t\t1.You would be getting an initial amount of 1000 coins;"
+    std::cout << "\nWelcome to the Gambling Game!!";
+    std::cout << "\n\tSo, Mr./Mrs./Mis. " << pName << " here are the rules of the game: ";
+    std::cout << "\n\t1.You would be getting an initial amount of 1000 coins;"
               << "which you would be using for in game gambling.";
-    std::cout << "\n\t\t\t\t\t\t\t\t\t\t2.If you loose all the coins then you would loose the game.";
+    std::cout << "\n\t2.If you loose all the coins then you would loose the game.";
+    sleep(8);
 }
 
 void playGame()
@@ -59,7 +60,7 @@ void playGame()
         }
         else
         {
-            std::cout << "Oops, you lost the bet."
+            std::cout << "\nOops, you lost the bet."
                       << "\nYou lost " << bettingCoins << " coins!" << std::endl;
             balanceCoins -= bettingCoins;
         }
@@ -72,12 +73,13 @@ void playGame()
             break;
         }
 
-        std::cout << "\nDo you wish to continue?(y\n)" << std::endl;
+        std::cout << "\nDo you wish to continue?(y\\n)" << std::endl;
         std::cin >> choice;
+        std::cout << std::endl;
 
     } while (choice == 'Y' || choice == 'y');
 
-    std::cout << "\nThanks for playing this game!"
+    std::cout << "Thanks for playing this game!"
               << "\nYour balance at the end of this game is " << balanceCoins;
 }
 
@@ -90,7 +92,7 @@ int main()
     std::getline(std::cin, pName);
     std::cout << "The player name is: " << pName << std::endl;
 
-    std::cout << "Are you familiar with the rules of the game?(y/n)" << std::endl;
+    std::cout << "Are you familiar with the rules of the game?(y//n)" << std::endl;
     char ch;
     std::cin >> ch;
 
